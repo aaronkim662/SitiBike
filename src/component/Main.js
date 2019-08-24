@@ -18,23 +18,27 @@ class Main extends React.Component {
       list: data.data.stationBeanList
 
     })
-     console.table(data.data.stationBeanList);
+     //console.table(data.data.stationBeanList);
   }
   componentDidMount() {
     this.makeApi()
   }
   render(){
     // let list = (this.state.list).map((d,i) => {
+    //   console.log()
     //   return (
     //     d.
     //   )
     // })
+    console.log('state', this.state.list)
   return (
   <main>
     <Switch>
       <Route exact path='/home' component={Home} />
       <Route path='/about' component={About} />
-      <Route path='/search' component={Search} />
+      <Route path='/search'
+      render={(props) => <Search {...props}
+      info={this.state.list} /> } />
 
     </Switch>
   </main>

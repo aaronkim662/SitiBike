@@ -75,11 +75,11 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Working with API | H | 1hr | .5hr |
 | Footer | L | .5hr |
 | Header | L | .5hr | .5hr |
-| About | L | .5hr |
-| Building a map | H | 2hr |
+| About | L | .5hr | .5hr |
+| Building a map | H | 2hr | 3hrs |
 | Adding functions | H | 2hr |
 | Working with two API's | H | 2hr |
-| Displaying data | H | 1hr |
+| Displaying data | H | 1hr | .5hr |
 
 ## Additional Libraries
  Use this section to list all supporting libraries and their role in the project such as Axios, ReactStrap, D3, etc.
