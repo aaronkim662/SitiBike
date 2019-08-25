@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer(){
   return (
-    <div>Aaron Kim</div>
+    <div>&copy; Aaron Kim</div>
   )
 }
 
