@@ -33,7 +33,9 @@ class Main extends React.Component {
     console.log('state', this.state.list)
   return (
   <main>
+
     <Switch>
+  
       <Route exact path='/home' component={Home} />
       <Route path='/about' component={About} />
       <Route path='/search'

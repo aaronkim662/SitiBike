@@ -54,7 +54,8 @@ function Search(props){
       latitude={selected.latitude}
       longitude={selected.longitude}
       closeButton={true}
-      closeOnClick={true}
+      closeOnClick={false}
+
       >
       <div>
         <h4>{selected.place}</h4>
