@@ -104,3 +104,10 @@ function reverse(string) {
 #### SAMPLE.....
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
 **RESOLUTION**: Missing comma after first object in sources {} object
+
+## Questions needed
+Styling the buttons
+Adding close function
+Not including popup at loading
+PostMVP
+Adding form to overlap map and where to put it
