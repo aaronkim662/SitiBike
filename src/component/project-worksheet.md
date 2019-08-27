@@ -75,11 +75,11 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Working with API | H | 1hr | .5hr |
 | Footer | L | .5hr |
 | Header | L | .5hr | .5hr |
-| About | L | .5hr | .5hr |
-| Building a map | H | 2hr | 3hrs |
+| About | L | .5hr |
+| Building a map | H | 2hr |
 | Adding functions | H | 2hr |
 | Working with two API's | H | 2hr |
-| Displaying data | H | 1hr | .5hr |
+| Displaying data | H | 1hr |
 
 ## Additional Libraries
  Use this section to list all supporting libraries and their role in the project such as Axios, ReactStrap, D3, etc.
@@ -104,23 +104,3 @@ function reverse(string) {
 #### SAMPLE.....
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
 **RESOLUTION**: Missing comma after first object in sources {} object
-
-## Questions needed
-Styling the buttons
-
-PostMVP
-Adding form to overlap map and where to put it IN MAIN
-
-<Popup
-  latitude={this.state.data.latitude}
-  longitude={this.state.data.longitude}
-  closeButton={true}
-  closeOnClick={true}
-
-  >
-  <div>
-    <h4>{this.state.data.place}</h4>
-    <h5>Bikes: {this.state.data.bikes}</h5>
-  <h5>Docks: {this.state.data.docks}</h5>
-</div>
-</Popup>
