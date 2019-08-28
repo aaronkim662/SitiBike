@@ -1,9 +1,14 @@
 import React from 'react'
 
 class Nearby extends React.Component{
-  render(){
-    return (
+  state = {
+    
+  }
 
+  render(){
+
+    return (
+      <div></div>
     )
   }
 }

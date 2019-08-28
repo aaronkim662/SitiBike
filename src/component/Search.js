@@ -2,7 +2,15 @@ import React from 'react';
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl, FullscreenControl} from 'react-map-gl'
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import Form from './Form'
+import Nearby from './Nearby'
+import Citi from './citi.svg'
 
+// <Nearby viewport={viewport}
+//         />
+const markerStyle = {
+  width: '10px',
+  height: '10px'
+}
 const navStyle = {
   position: 'absolute',
   top: 36,
@@ -25,8 +33,12 @@ function Search(props){
     latitude: 40.7403432,
     longitude: -73.98955109,
   });
+  const[mapData,setmapData] = React.useState('');
 
-  const[located,setLocated] = React.useState('')
+  const[located,setLocated] = React.useState({
+    array: []
+  });
+
 
   const handleSubmit = (val) => {
     setLocated(val)
@@ -43,9 +55,25 @@ function Search(props){
       latitude={val.latitude}
       longitude={val.longitude}
       radius={5}
-        ></Marker>
+        ><img src='' alt='search'/></Marker>
     )
   }
+
+  // let list = props.info.map((loc) => {
+  //   return(
+  //     setmapData({
+  //       [...array,
+  //         place: loc.stAddress1,
+  //         docks: loc.availableDocks,
+  //         bikes: loc.availableBikes,
+  //         latitude: loc.latitude,
+  //         longitude: loc.longitude
+  //       ]
+  //     }
+  //   ))}
+  //   )
+
+  console.log('mapdata', mapData)
   return (
     <React.Fragment>
     <Form onSubmit={handleSubmit}/>
@@ -58,12 +86,16 @@ function Search(props){
     }}>
 
     { props.info.map((d,i) => {
+
       return(
       <Marker key={d.id}
               latitude={d.latitude}
               longitude={d.longitude}
+
               >
-              <button onClick={(e) => {
+              <button
+
+                onClick={(e) => {
                   e.preventDefault();
                   setSelected({
                     place: d.stAddress1,
@@ -73,11 +105,12 @@ function Search(props){
                     longitude: d.longitude,
                     showPopup: true
                   })
-                  console.log({selected})
                 }}>
-                {/*<img src='./citi.svg' alt='citibike'/>*/}
+                <img src={require('./citi.svg')} alt='citibike'
+                  style={markerStyle}/>
               </button>
       </Marker>
+
     )
     })}
     { selected.showPopup &&
@@ -102,6 +135,7 @@ function Search(props){
     />
     <NavigationControl />
     <FullscreenControl />
+
   </div>
   </ReactMapGL>
 </React.Fragment>
