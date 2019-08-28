@@ -42,11 +42,10 @@ function Search(props){
       <Marker
       latitude={val.latitude}
       longitude={val.longitude}
+      radius={5}
         ></Marker>
     )
-
   }
-
   return (
     <React.Fragment>
     <Form onSubmit={handleSubmit}/>
@@ -62,7 +61,8 @@ function Search(props){
       return(
       <Marker key={d.id}
               latitude={d.latitude}
-              longitude={d.longitude}>
+              longitude={d.longitude}
+              >
               <button onClick={(e) => {
                   e.preventDefault();
                   setSelected({
@@ -75,6 +75,7 @@ function Search(props){
                   })
                   console.log({selected})
                 }}>
+                {/*<img src='./citi.svg' alt='citibike'/>*/}
               </button>
       </Marker>
     )

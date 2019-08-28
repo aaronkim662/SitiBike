@@ -5,11 +5,14 @@ import Main from './component/Main'
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Footer from './component/Footer'
 
+
 function App() {
   return (
     <div className="App">
       <Header />
+      <div className='main'>
       <Main />
+      </div>
       <Footer />
     </div>
   );

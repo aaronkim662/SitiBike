@@ -73,54 +73,58 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | --- | :---: |  :---: | :---: | :---: |
 | Building skeleton | M | 30 Mins | 20 Mins |
 | Working with API | H | 1hr | .5hr |
-| Footer | L | .5hr |
-| Header | L | .5hr | .5hr |
-| About | L | .5hr | .5hr |
+| Footer | L | .5hr | 5 mins |
+| Header | L | .5hr | 10 mins |
+| About | L | .5hr | .5hr | 5 mins |
 | Building a map | H | 2hr | 3hrs |
-| Adding functions | H | 2hr |
-| Working with two API's | H | 2hr |
-| Displaying data | H | 1hr | .5hr |
+| Adding functions | H | 2hr | 1hr |
+| Displaying data | H | 1hr | 10 mins |
+
+MVP Total Time: 4.6 hours
+
+PostMVP
+
+| Add zoom in and out | L | 1hr | .5hr |
+| Working with geoLocate API | H | 2hr | 1hr |
+| Search Form | H | 2hr | 5hr |
+| Enable radius markers | H | 2hr |
+| Set up algorithm | H | 2hr |
+
 
 ## Additional Libraries
  Use this section to list all supporting libraries and their role in the project such as Axios, ReactStrap, D3, etc.
  -axios
- -ReactStrap
  -mapbox
- -react-map
+ -react-map-gl
 
 ## Code Snippet
 
 Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  Code snippet should not be greater than 10 lines of code.
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+const handleSubmit = (val) => {
+  setLocated(val)
+  setViewport({
+    latitude: val.latitude,
+    longitude: val.longitude,
+    width: '100vw',
+    height: '100vh',
+    zoom: 16
+  })
 ```
+## Description
+  This code uses the users input in the search form and sets up the map so that it zooms to that location.
 
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.
+
+ Major Issues:
+ -Getting the map to render : Restart Client ('-')
+ -Applying geolocation into the app without complicating the structure of the current search component : Applied more react map gl effects
+ (functional to class)
 
 #### SAMPLE.....
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
 **RESOLUTION**: Missing comma after first object in sources {} object
 
 ## Questions needed
-Styling the buttons
-
-PostMVP
-Adding form to overlap map and where to put it IN MAIN
-
-<Popup
-  latitude={this.state.data.latitude}
-  longitude={this.state.data.longitude}
-  closeButton={true}
-  closeOnClick={true}
-
-  >
-  <div>
-    <h4>{this.state.data.place}</h4>
-    <h5>Bikes: {this.state.data.bikes}</h5>
-  <h5>Docks: {this.state.data.docks}</h5>
-</div>
-</Popup>
