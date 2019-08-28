@@ -5,7 +5,7 @@ import Form from './Form'
 import Nearby from './Nearby'
 import Citi from './citi.svg'
 
-// <Nearby viewport={viewport}
+// <Nearby mapData={mapData}
 //         />
 const markerStyle = {
   width: '10px',
@@ -19,26 +19,40 @@ const navStyle = {
 };
 
 function Search(props){
-
+  // current viewing of map
   const[viewport, setViewport] = React.useState({
     latitude: 40.740552,
     longitude: -73.987172,
-    width: '100vw',
-    height: '100vh',
+    width: '100%',
+    height: '80vh',
     zoom: 12
   });
 
+  // selected button on map
   const[selected,setSelected] = React.useState({
     showPopup: false,
     latitude: 40.7403432,
     longitude: -73.98955109,
   });
-  const[mapData,setmapData] = React.useState('');
 
-  const[located,setLocated] = React.useState({
-    array: []
-  });
+  // iterate through api and return values to push to Nearby
+  const[mapData,setMapData] = React.useState('');
 
+  // geolocation
+  const[located,setLocated] = React.useState();
+
+    React.useEffect(() => {
+      setMapData(props.info.map((loc) => {
+        return {
+              key: loc.id,
+              place: loc.stAddress1,
+              docks: loc.availableDocks,
+              bikes: loc.availableBikes,
+              latitude: loc.latitude,
+              longitude: loc.longitude
+          }
+        }));
+    },[located])
 
   const handleSubmit = (val) => {
     setLocated(val)
@@ -49,31 +63,17 @@ function Search(props){
       height: '100vh',
       zoom: 16
     })
-    console.log('search', val)
-    return(
-      <Marker
-      latitude={val.latitude}
-      longitude={val.longitude}
-      radius={5}
-        ><img src='' alt='search'/></Marker>
-    )
   }
-
-  // let list = props.info.map((loc) => {
-  //   return(
-  //     setmapData({
-  //       [...array,
-  //         place: loc.stAddress1,
-  //         docks: loc.availableDocks,
-  //         bikes: loc.availableBikes,
-  //         latitude: loc.latitude,
-  //         longitude: loc.longitude
-  //       ]
-  //     }
-  //   ))}
-  //   )
-
-  console.log('mapdata', mapData)
+  // const handleClick = (e) => {
+  //   console.log('event', e)
+  //   if(e) {
+  //     setLocated({
+  //       latitude: viewport.latitude,
+  //       longitude: viewport.longitude
+  //     })
+  //   }
+  //   console.log('located1', located)
+  // }
   return (
     <React.Fragment>
     <Form onSubmit={handleSubmit}/>
@@ -85,16 +85,14 @@ function Search(props){
       setViewport(viewport)
     }}>
 
-    { props.info.map((d,i) => {
+    {props.info.map((d,i) => {
 
       return(
       <Marker key={d.id}
               latitude={d.latitude}
               longitude={d.longitude}
-
               >
               <button
-
                 onClick={(e) => {
                   e.preventDefault();
                   setSelected({
@@ -114,29 +112,37 @@ function Search(props){
     )
     })}
     { selected.showPopup &&
-    <Popup
+    <Popup className='popup'
       latitude={selected.latitude}
       longitude={selected.longitude}
       closeButton={true}
       closeOnClick={false}
       onClose={() => setSelected({showPopup: false})}
       >
-      <div>
-        <h4>{selected.place}</h4>
-        <h5>Available Bikes: {selected.bikes}</h5>
-        <h5>Number of Docks: {selected.docks}</h5>
+      <div className='back1'>
+        <img src={require('./PowerMap.png')} alt='pin'
+          className='popupImg'/>
+        <h4 className='back1h4'>{selected.place}</h4>
+        <div className='back2'>
+        <h5 className='back2h5'>Available Bikes: {selected.bikes}</h5>
+        <h5 className='back2h5'>Number of Docks: {selected.docks}</h5>
+        </div>
     </div>
     </Popup>
   }
-  <div style={navStyle}>
-    <GeolocateControl
+
+    <GeolocateControl className='geoLocate'
       positionOptions={{enableHighAccuracy: true}}
       trackUserLocation={true}
-    />
+      />
+    <div style={navStyle}>
+
     <NavigationControl />
     <FullscreenControl />
 
   </div>
+
+
   </ReactMapGL>
 </React.Fragment>
   )

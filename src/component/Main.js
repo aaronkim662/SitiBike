@@ -1,6 +1,5 @@
 import React from 'react'
 import Search from './Search'
-import About from './About'
 import Home from './Home'
 import { Route, Switch } from 'react-router-dom'
 import axios from 'axios'
@@ -26,7 +25,6 @@ class Main extends React.Component {
   <main>
     <Switch>
       <Route exact path='/home' component={Home} />
-      <Route path='/about' component={About} />
       <Route path='/search'
       render={(props) => <Search {...props}
       info={this.state.list} /> } />

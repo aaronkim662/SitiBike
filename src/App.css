@@ -1,3 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
 .App {
   text-align: center;
+}
+
+.headerNav {
+  display : flex;
+  justify-content: space-around;
+  width : 100vw;
+  height : 30px;
+  padding : 0 20px 20px 0;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+}
+
+.home {
+  height: 80vh;
+  background-image: url('./component/bike1.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.homeText {
+  padding: 10px;
+}
+.ulist {
+  text-decoration: none;
+    color: black;
+}
+.geoLocate {
+  position: absolute;
+}
+
+.inputForm {
+  width: 200px;
+  height: 15px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+}
+
+.footer {
+  font-family: 'Playfair Display', serif;
+}
+
+.back1 {
+  background-color: lightblue;
+  height: 190px;
+  width: 150px;
+  padding: 0 10px 0 10px;
+}
+.back1h4 {
+  color: darkblue;
+}
+
+.back2 {
+  background-color: lightgray;
+}
+
+.back2h5 {
+  color: darkblue;
+  background-color: white;
+}
+
+.popupImg {
+  width: 30px;
+  height: 30px;
+  padding: 10px;
 }

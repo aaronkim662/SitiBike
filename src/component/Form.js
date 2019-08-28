@@ -42,12 +42,15 @@ handleSubmit = (e) => {
 
   render(){
   return (
-      <form onSubmit={this.handleSubmit}>
-        <input type='text'
-          placeholder='zipcode or address here'
+      <form className='form'
+        onSubmit={this.handleSubmit}>
+        <input className='inputForm'
+          type='text'
+          placeholder='Addess and Borough'
           value={this.state.value}
           onChange={this.handleChange}/>
-        <button value='Submit'></button>
+        <button className='buttonForm'
+          value='Submit'>Submit</button>
       </form>
     )
   }
