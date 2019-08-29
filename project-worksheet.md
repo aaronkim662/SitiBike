@@ -69,7 +69,7 @@ Based on the initial logic defined in the previous sections try and breakdown th
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Also, put a gif at the top of your Readme before you pitch, and you'll get a panda prize.
 
-| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Building skeleton | M | 30 Mins | 20 Mins |
 | Working with API | H | 1hr | .5hr |
@@ -79,17 +79,14 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Building a map | H | 2hr | 3hrs |
 | Adding functions | H | 2hr | 1hr |
 | Displaying data | H | 1hr | 10 mins |
-
-MVP Total Time: 4.6 hours
-
-PostMVP
-| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
+| MVP Total Time | | | 4.6hr |
+| PostMVP | | | |
 | Add zoom in and out | L | 1hr | .5hr |
 | Working with geoLocate API | H | 2hr | 1hr |
 | Search Form | H | 2hr | 1hr |
 | Enable radius markers | H | 2hr | Removed from PMVP |
-| Set up algorithm | H | 2hr |
+| Set up algorithm | H | 2hr | 1hr |
+| Display nearby | H | 2hr | 4hr |
 
 
 ## Additional Libraries

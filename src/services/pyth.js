@@ -16,7 +16,6 @@ const pyth = (bikes, geo) => {
     return bike;
   })
   let filter = list.sort((a,b) => a.py - b.py)
-  console.log(filter);
   return filter[0]
 }
 

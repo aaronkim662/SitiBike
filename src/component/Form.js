@@ -46,7 +46,7 @@ handleSubmit = (e) => {
         onSubmit={this.handleSubmit}>
         <input className='inputForm'
           type='text'
-          placeholder='Addess and Borough'
+          placeholder='Address and Borough'
           value={this.state.value}
           onChange={this.handleChange}/>
         <button className='buttonForm'

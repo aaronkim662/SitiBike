@@ -16,14 +16,14 @@ function Search(props){
   // selected button on map
   const[selected,setSelected] = React.useState({
     showPopup: false,
-    latitude: 40.7403432,
-    longitude: -73.98955109,
+    latitude: 40.740552,
+    longitude: -73.987172,
   });
   // iterate through api and return values to push to Nearby
   const[mapData,setMapData] = React.useState('');
   //searched location
   const[located,setLocated] = React.useState({
-    nearby: ''
+
   });
     // geolocation
   const[geoLocated, setGeoLocated] = React.useState(null);
@@ -45,12 +45,15 @@ function Search(props){
               bikes: loc.availableBikes,
               latitude: loc.latitude,
               longitude: loc.longitude
-        }
+            }
         }));
     }, [geoLocated])  //have changed? run effect
 
   const handleSubmit = (val) => {
-    setLocated(val)
+    setLocated({
+      latitude: val.latitude,
+      longitude: val.longitude
+    })
     setViewport({
       latitude: val.latitude,
       longitude: val.longitude,
@@ -59,7 +62,6 @@ function Search(props){
       zoom: 16
     })
   }
-// console.log('located', located.latitude)
 const geoLocateControl = (newViewport) => {
   setGeoLocated({
     latitude: newViewport.latitude,

@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "homepage": "https://aaronkim662.github.io/website_api",
+
   "version": "0.1.0",
   "private": true,
   "dependencies": {
