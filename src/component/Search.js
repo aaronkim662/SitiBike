@@ -2,9 +2,7 @@ import React from 'react';
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl, FullscreenControl} from 'react-map-gl'
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import Form from './Form'
-
-// setLocated({ latitude:viewport.latitude })
-//  setLocated({longitude:viewport.longitude})
+import pyth from '../services/pyth'
 
 function Search(props){
   // current viewing of map
@@ -23,9 +21,21 @@ function Search(props){
   });
   // iterate through api and return values to push to Nearby
   const[mapData,setMapData] = React.useState('');
-  // geolocation
+  //searched location
   const[located,setLocated] = React.useState('');
-    React.useEffect(() => {
+
+    // geolocation
+  const[geoLocated, setGeoLocated] = React.useState(null);
+
+  const[locationPy, setLocationPy] = React.useState({
+    latitude: '',
+    longitude: '',
+    bikes: '',
+    docks: '',
+    place: ''
+  });
+
+  React.useEffect(() => {
       setMapData(props.info.map((loc) => {
         return {
               key: loc.id,
@@ -36,7 +46,7 @@ function Search(props){
               longitude: loc.longitude
           }
         }));
-    },[located])
+    }, [geoLocated])  //have changed? run effect
 
   const handleSubmit = (val) => {
     setLocated(val)
@@ -48,18 +58,34 @@ function Search(props){
       zoom: 16
     })
   }
-  const handleClick = (e) => {
-    console.log('event', e)
-    if(e) {
-   setLocated({
-        latitude: viewport.latitude,
-        longitude: viewport.longitude
-      })
-    }
-    console.log('located1', located)
+// console.log('located', located.latitude)
+const geoLocateControl = (newViewport) => {
+  setGeoLocated({
+    latitude: newViewport.latitude,
+    longitude: newViewport.longitude
+  })
+  setViewport({
+    latitude: newViewport.latitude,
+    longitude: newViewport.longitude,
+    width: '100vw',
+    height: '100vh',
+    zoom: 16
+  })
+  let data = pyth(mapData, geoLocated)
 
-  }
-    console.log('geo view', viewport.latitude, viewport.longitude)
+  setLocationPy({
+    latitude: data.latitude,
+    longitude: data.longitude,
+    bikes: data.bikes,
+    docks: data.docks,
+    place: data.place
+    })
+   }
+
+
+  // React.useEffect(() => {
+  // console.log('locationpy', locationPy.filtered.place)
+  // },[locationPy])
   return (
     <React.Fragment>
       <Form onSubmit={handleSubmit}/>
@@ -110,7 +136,7 @@ function Search(props){
         <h4 className='back1h4'>{selected.place}</h4>
         <div className='back2'>
         <h5 className='back2h5'>Available Bikes: {selected.bikes}</h5>
-        <h5 className='back2h5'>Number of Docks: {selected.docks}</h5>
+        <h5 className='back2h5'>Available Docks: {selected.docks}</h5>
         </div>
     </div>
     </Popup>
@@ -118,13 +144,17 @@ function Search(props){
     <GeolocateControl className='geoLocate'
       positionOptions={{enableHighAccuracy: true}}
       trackUserLocation={true}
-
+      onViewportChange={viewport => {
+        geoLocateControl(viewport)
+      }}
       />
     <div className='control'>
       <NavigationControl />
       <FullscreenControl />
     </div>
+
   </ReactMapGL>
+
 </React.Fragment>
   )
 }
