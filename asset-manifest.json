@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/website_api/static/css/main.1e30aab8.chunk.css",
+    "main.js": "/website_api/static/js/main.72d4a42e.chunk.js",
+    "main.js.map": "/website_api/static/js/main.72d4a42e.chunk.js.map",
+    "runtime~main.js": "/website_api/static/js/runtime~main.205c3ea0.js",
+    "runtime~main.js.map": "/website_api/static/js/runtime~main.205c3ea0.js.map",
+    "static/css/2.d844e46b.chunk.css": "/website_api/static/css/2.d844e46b.chunk.css",
+    "static/js/2.399e3151.chunk.js": "/website_api/static/js/2.399e3151.chunk.js",
+    "static/js/2.399e3151.chunk.js.map": "/website_api/static/js/2.399e3151.chunk.js.map",
+    "index.html": "/website_api/index.html",
+    "precache-manifest.213410554261168dcdcc7973bd3cb0a4.js": "/website_api/precache-manifest.213410554261168dcdcc7973bd3cb0a4.js",
+    "service-worker.js": "/website_api/service-worker.js",
+    "static/css/2.d844e46b.chunk.css.map": "/website_api/static/css/2.d844e46b.chunk.css.map",
+    "static/css/main.1e30aab8.chunk.css.map": "/website_api/static/css/main.1e30aab8.chunk.css.map",
+    "static/media/App.css": "/website_api/static/media/bike1.a1a70120.jpg",
+    "static/media/citi.svg": "/website_api/static/media/citi.c088458c.svg"
+  }
+}
