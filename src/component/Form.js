@@ -8,12 +8,10 @@ state ={
   latitude: '',
   longitude:''
 }
-
 handleSubmit = (e) => {
     e.preventDefault()
     console.log('from form', this.state.value)
     this.props.onSubmit(this.state)
-
     this.location();
   }
   // not needed, only to verify value is being changed
@@ -22,9 +20,7 @@ handleSubmit = (e) => {
        value: e.target.value
      })
   }
-
   location = async () =>{
-
     let formValue = this.state.value.split(' ').join('+');
     let base1 = '&city=NewYorkCity&state=NY&api_key=';
     let key = '258c6fc642ec22506d0d263e55ef02566d55f88';
@@ -39,7 +35,6 @@ handleSubmit = (e) => {
   componentDidMount(){
     this.location()
   }
-
   render(){
   return (
       <form className='form'
