@@ -42,7 +42,7 @@
 .form {
   display: flex;
   justify-content: center;
-  padding: 20px 0 20px 0;
+  padding: 20px 0 10px 0;
 }
 
 .footer {
@@ -87,8 +87,8 @@
 }
 
 .imgBike {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 .control {
@@ -96,4 +96,8 @@
   top: 36;
   left: 0;
   padding: 0px;
+}
+
+.divSelection {
+  margin: 10px;
 }

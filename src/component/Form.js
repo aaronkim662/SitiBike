@@ -50,7 +50,7 @@ handleSubmit = (e) => {
           value={this.state.value}
           onChange={this.handleChange}/>
         <button className='buttonForm'
-          value='Submit'>Submit</button>
+          value='Submit'>Search</button>
       </form>
     )
   }

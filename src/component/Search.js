@@ -10,7 +10,7 @@ function Search(props){
     latitude: 40.740552,
     longitude: -73.987172,
     width: '100%',
-    height: '80vh',
+    height: '75vh',
     zoom: 12
   });
   // selected button on map
@@ -29,6 +29,7 @@ function Search(props){
   const[geoLocated, setGeoLocated] = React.useState(null);
 
   const[locationPy, setLocationPy] = React.useState({
+    selection: 'distance',
     latitude: '',
     longitude: '',
     bikes: '',
@@ -75,7 +76,9 @@ const geoLocateControl = (newViewport) => {
     zoom: 15
   })
   if (mapData.length) {
-    let data = pyth(mapData, geoLocated)
+    let data = pyth(mapData,
+    geoLocated,locationPy.selection)
+
     setLocationPy({
       latitude: data.latitude,
       longitude: data.longitude,
@@ -96,7 +99,21 @@ const geoLocateControl = (newViewport) => {
 }
   return (
     <React.Fragment>
+
       <Form onSubmit={handleSubmit}/>
+
+        <div className="divSelection">Do you want the greatest number of bikes or the shortest distance? (Select the geoLocater after)
+        <button onClick={(e) => {
+            setLocationPy({
+              selection: 'bike'
+            })
+          }}>Bikes</button>
+          <button onClick={(e) => {
+              setLocationPy({
+                selection: 'distance'
+              })
+            }}>Distance</button>
+            </div>
       <ReactMapGL
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
