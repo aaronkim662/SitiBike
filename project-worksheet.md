@@ -75,7 +75,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Working with API | H | 1hr | .5hr |
 | Footer | L | .5hr | 5 mins |
 | Header | L | .5hr | 10 mins |
-| About | L | .5hr | .5hr | 5 mins |
+| About | L | .5hr | Erased |
 | Building a map | H | 2hr | 3hrs |
 | Adding functions | H | 2hr | 1hr |
 | Displaying data | H | 1hr | 10 mins |
@@ -86,8 +86,8 @@ PostMVP
 
 | Add zoom in and out | L | 1hr | .5hr |
 | Working with geoLocate API | H | 2hr | 1hr |
-| Search Form | H | 2hr | 5hr |
-| Enable radius markers | H | 2hr |
+| Search Form | H | 2hr | 1hr |
+| Enable radius markers | H | 2hr | Removed from PMVP |
 | Set up algorithm | H | 2hr |
 
 

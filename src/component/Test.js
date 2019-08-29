@@ -2,11 +2,8 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import React, { Component } from "react";
 import MapGL from "react-map-gl";
-import DeckGL, { GeoJsonLayer } from "deck.gl";
+
 import Geocoder from "react-map-gl-geocoder";
-import ReactMapGL, { Marker, Popup } from 'react-map-gl'
-
-
 
 //https://codesandbox.io/s/l7p179qr6m
 //open sourced code from github displaying geocode

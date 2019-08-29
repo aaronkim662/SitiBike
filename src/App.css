@@ -17,7 +17,7 @@
 
 .home {
   height: 80vh;
-  background-image: url('./component/bike1.jpg');
+  background-image: url('./bike1.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -26,12 +26,10 @@
 .homeText {
   padding: 10px;
 }
+
 .ulist {
   text-decoration: none;
     color: black;
-}
-.geoLocate {
-  position: absolute;
 }
 
 .inputForm {
@@ -53,12 +51,14 @@
 
 .back1 {
   background-color: lightblue;
-  height: 190px;
-  width: 150px;
+  height: 200px;
+  width: 160px;
   padding: 0 10px 0 10px;
 }
+
 .back1h4 {
   color: darkblue;
+  font-family: 'Playfair Display', serif;
 }
 
 .back2 {
@@ -68,10 +68,23 @@
 .back2h5 {
   color: darkblue;
   background-color: white;
+  font-family: 'Playfair Display', serif;
 }
 
 .popupImg {
   width: 30px;
   height: 30px;
   padding: 10px;
+}
+
+.imgBike {
+  width: 10px;
+  height: 10px;
+}
+
+.control {
+  position: absolute;
+  top: 36;
+  left: 0;
+  padding: 0px;
 }

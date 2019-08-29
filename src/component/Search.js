@@ -2,21 +2,9 @@ import React from 'react';
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl, FullscreenControl} from 'react-map-gl'
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import Form from './Form'
-import Nearby from './Nearby'
-import Citi from './citi.svg'
 
-// <Nearby mapData={mapData}
-//         />
-const markerStyle = {
-  width: '10px',
-  height: '10px'
-}
-const navStyle = {
-  position: 'absolute',
-  top: 36,
-  left: 0,
-  padding: '0px',
-};
+// setLocated({ latitude:viewport.latitude })
+//  setLocated({longitude:viewport.longitude})
 
 function Search(props){
   // current viewing of map
@@ -27,20 +15,16 @@ function Search(props){
     height: '80vh',
     zoom: 12
   });
-
   // selected button on map
   const[selected,setSelected] = React.useState({
     showPopup: false,
     latitude: 40.7403432,
     longitude: -73.98955109,
   });
-
   // iterate through api and return values to push to Nearby
   const[mapData,setMapData] = React.useState('');
-
   // geolocation
-  const[located,setLocated] = React.useState();
-
+  const[located,setLocated] = React.useState('');
     React.useEffect(() => {
       setMapData(props.info.map((loc) => {
         return {
@@ -64,54 +48,55 @@ function Search(props){
       zoom: 16
     })
   }
-  // const handleClick = (e) => {
-  //   console.log('event', e)
-  //   if(e) {
-  //     setLocated({
-  //       latitude: viewport.latitude,
-  //       longitude: viewport.longitude
-  //     })
-  //   }
-  //   console.log('located1', located)
-  // }
+  const handleClick = (e) => {
+    console.log('event', e)
+    if(e) {
+   setLocated({
+        latitude: viewport.latitude,
+        longitude: viewport.longitude
+      })
+    }
+    console.log('located1', located)
+
+  }
+    console.log('geo view', viewport.latitude, viewport.longitude)
   return (
     <React.Fragment>
-    <Form onSubmit={handleSubmit}/>
-    <ReactMapGL
-    {...viewport}
-    mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-    mapStyle='mapbox://styles/ak662/cjzoyir3f1mnb1cmzvofnhu9u'
-    onViewportChange={viewport => {
-      setViewport(viewport)
-    }}>
+      <Form onSubmit={handleSubmit}/>
+      <ReactMapGL
+      {...viewport}
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+      mapStyle='mapbox://styles/ak662/cjzoyir3f1mnb1cmzvofnhu9u'
+      onViewportChange={viewport => {
+        setViewport(viewport)
+      }}>
 
-    {props.info.map((d,i) => {
+      {props.info.map((d,i) => {
 
-      return(
-      <Marker key={d.id}
-              latitude={d.latitude}
-              longitude={d.longitude}
-              >
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setSelected({
-                    place: d.stAddress1,
-                    docks: d.availableDocks,
-                    bikes: d.availableBikes,
-                    latitude: d.latitude,
-                    longitude: d.longitude,
-                    showPopup: true
-                  })
-                }}>
-                <img src={require('./citi.svg')} alt='citibike'
-                  style={markerStyle}/>
-              </button>
-      </Marker>
-
-    )
-    })}
-    { selected.showPopup &&
+        return(
+        <Marker key={d.id}
+          latitude={d.latitude}
+          longitude={d.longitude}
+          >
+          <button
+            onClick={(e) => {
+            e.preventDefault();
+            setSelected({
+              place: d.stAddress1,
+              docks: d.availableDocks,
+              bikes: d.availableBikes,
+              latitude: d.latitude,
+              longitude: d.longitude,
+              showPopup: true
+              })
+            }}>
+            <img src={require('./citi.svg')} alt='citibike' className='imgBike'
+              />
+          </button>
+        </Marker>
+        )
+      })}
+    {selected.showPopup &&
     <Popup className='popup'
       latitude={selected.latitude}
       longitude={selected.longitude}
@@ -130,19 +115,15 @@ function Search(props){
     </div>
     </Popup>
   }
-
     <GeolocateControl className='geoLocate'
       positionOptions={{enableHighAccuracy: true}}
       trackUserLocation={true}
+
       />
-    <div style={navStyle}>
-
-    <NavigationControl />
-    <FullscreenControl />
-
-  </div>
-
-
+    <div className='control'>
+      <NavigationControl />
+      <FullscreenControl />
+    </div>
   </ReactMapGL>
 </React.Fragment>
   )
