@@ -24,7 +24,7 @@ class Main extends React.Component {
   return (
   <main>
     <Switch>
-      <Route exact path='/home' component={Home} />
+      <Route exact path='/' component={Home} />
       <Route path='/search'
       render={(props) => <Search {...props}
       info={this.state.list} /> } />
