@@ -13,9 +13,11 @@
 const pyth = (bikes, geo) => {
   let list = bikes.map((bike) => {
     bike.py = Math.pow(bike.latitude - geo.latitude,2) + Math.pow(bike.longitude - geo.longitude,2)
+    return bike;
   })
-  let filter = bikes.sort((a,b) => a.py - b.py)
-  return bikes[0]
+  let filter = list.sort((a,b) => a.py - b.py)
+  console.log(filter);
+  return filter[0]
 }
 
 

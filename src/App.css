@@ -53,22 +53,31 @@
   background-color: lightblue;
   height: 200px;
   width: 160px;
-  padding: 0 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
 }
-
+.back1h3 {
+   margin: 0 auto;
+}
 .back1h4 {
   color: darkblue;
   font-family: 'Playfair Display', serif;
+  margin: 0 auto;
 }
 
 .back2 {
   background-color: lightgray;
+  margin: 0 auto;
 }
 
 .back2h5 {
   color: darkblue;
   background-color: white;
   font-family: 'Playfair Display', serif;
+  margin: 0 auto;
 }
 
 .popupImg {
@@ -78,8 +87,8 @@
 }
 
 .imgBike {
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
 }
 
 .control {
@@ -88,3 +97,8 @@
   left: 0;
   padding: 0px;
 }
+
+/* <div>Nearby
+    <h4>Available Bikes : locationPy.bikes</h4>
+    <h4>Available Docks : locationPy.docks</h4>
+</div> */

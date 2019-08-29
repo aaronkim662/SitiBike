@@ -22,8 +22,9 @@ function Search(props){
   // iterate through api and return values to push to Nearby
   const[mapData,setMapData] = React.useState('');
   //searched location
-  const[located,setLocated] = React.useState('');
-
+  const[located,setLocated] = React.useState({
+    nearby: ''
+  });
     // geolocation
   const[geoLocated, setGeoLocated] = React.useState(null);
 
@@ -44,7 +45,7 @@ function Search(props){
               bikes: loc.availableBikes,
               latitude: loc.latitude,
               longitude: loc.longitude
-          }
+        }
         }));
     }, [geoLocated])  //have changed? run effect
 
@@ -69,23 +70,28 @@ const geoLocateControl = (newViewport) => {
     longitude: newViewport.longitude,
     width: '100vw',
     height: '100vh',
-    zoom: 16
+    zoom: 15
   })
-  let data = pyth(mapData, geoLocated)
-
-  setLocationPy({
-    latitude: data.latitude,
-    longitude: data.longitude,
-    bikes: data.bikes,
-    docks: data.docks,
-    place: data.place
+  if (mapData.length) {
+    let data = pyth(mapData, geoLocated)
+    setLocationPy({
+      latitude: data.latitude,
+      longitude: data.longitude,
+      bikes: data.bikes,
+      docks: data.docks,
+      place: data.place
+      })
+    setSelected({
+      latitude: data.latitude,
+      longitude: data.longitude,
+      bikes: data.bikes,
+      docks: data.docks,
+      place: data.place,
+      showPopup: true,
+      nearby: "Nearby"
     })
-   }
-
-
-  // React.useEffect(() => {
-  // console.log('locationpy', locationPy.filtered.place)
-  // },[locationPy])
+  }
+}
   return (
     <React.Fragment>
       <Form onSubmit={handleSubmit}/>
@@ -96,29 +102,25 @@ const geoLocateControl = (newViewport) => {
       onViewportChange={viewport => {
         setViewport(viewport)
       }}>
-
       {props.info.map((d,i) => {
-
         return(
         <Marker key={d.id}
           latitude={d.latitude}
           longitude={d.longitude}
           >
-          <button
-            onClick={(e) => {
-            e.preventDefault();
-            setSelected({
-              place: d.stAddress1,
-              docks: d.availableDocks,
-              bikes: d.availableBikes,
-              latitude: d.latitude,
-              longitude: d.longitude,
-              showPopup: true
-              })
-            }}>
             <img src={require('./citi.svg')} alt='citibike' className='imgBike'
-              />
-          </button>
+              onClick={(e) => {
+              e.preventDefault();
+              setSelected({
+                place: d.stAddress1,
+                docks: d.availableDocks,
+                bikes: d.availableBikes,
+                latitude: d.latitude,
+                longitude: d.longitude,
+                showPopup: true
+                })
+              }}
+            />
         </Marker>
         )
       })}
@@ -133,6 +135,7 @@ const geoLocateControl = (newViewport) => {
       <div className='back1'>
         <img src={require('./PowerMap.png')} alt='pin'
           className='popupImg'/>
+        <h3 className='back1h3'>{selected.nearby}</h3>
         <h4 className='back1h4'>{selected.place}</h4>
         <div className='back2'>
         <h5 className='back2h5'>Available Bikes: {selected.bikes}</h5>
@@ -152,9 +155,7 @@ const geoLocateControl = (newViewport) => {
       <NavigationControl />
       <FullscreenControl />
     </div>
-
   </ReactMapGL>
-
 </React.Fragment>
   )
 }
