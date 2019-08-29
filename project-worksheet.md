@@ -83,7 +83,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 MVP Total Time: 4.6 hours
 
 PostMVP
-
+| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
 | Add zoom in and out | L | 1hr | .5hr |
 | Working with geoLocate API | H | 2hr | 1hr |
 | Search Form | H | 2hr | 1hr |
