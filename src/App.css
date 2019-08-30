@@ -4,6 +4,70 @@
   text-align: center;
 }
 
+.back1 {
+  background-color: lightblue;
+  height: 200px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.back2 {
+  background-color: lightgray;
+  margin: 0 auto;
+}
+
+.back1h3 {
+   margin: 0 auto;
+}
+
+.back1h4 {
+  color: darkblue;
+  font-family: 'Playfair Display', serif;
+  margin: 0 auto;
+}
+
+.back2h5 {
+  color: darkblue;
+  background-color: white;
+  font-family: 'Playfair Display', serif;
+  margin: 0 auto;
+}
+
+.btnForm {
+  font-family: 'Playfair Display', serif;
+}
+
+.btnSelection {
+  font-family: 'Playfair Display', serif;
+  margin-left: 5px;
+}
+
+.control {
+  position: absolute;
+  top: 36;
+  left: 0;
+  padding: 0px;
+}
+
+.divSelection {
+  margin: 10px;
+  font-family: 'Playfair Display', serif;
+}
+
+.footer {
+  font-family: 'Playfair Display', serif;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 10px 0;
+}
+
 .headerNav {
   display : flex;
   justify-content: space-around;
@@ -25,11 +89,14 @@
 
 .homeText {
   padding: 10px;
+  margin-top: 10px;
+  font-family: 'Playfair Display', serif;
+
 }
 
-.ulist {
-  text-decoration: none;
-    color: black;
+.imgBike {
+  width: 30px;
+  height: 30px;
 }
 
 .inputForm {
@@ -39,65 +106,13 @@
   font-family: 'Playfair Display', serif;
 }
 
-.form {
-  display: flex;
-  justify-content: center;
-  padding: 20px 0 10px 0;
-}
-
-.footer {
-  font-family: 'Playfair Display', serif;
-}
-
-.back1 {
-  background-color: lightblue;
-  height: 200px;
-  width: 160px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 auto;
-}
-.back1h3 {
-   margin: 0 auto;
-}
-.back1h4 {
-  color: darkblue;
-  font-family: 'Playfair Display', serif;
-  margin: 0 auto;
-}
-
-.back2 {
-  background-color: lightgray;
-  margin: 0 auto;
-}
-
-.back2h5 {
-  color: darkblue;
-  background-color: white;
-  font-family: 'Playfair Display', serif;
-  margin: 0 auto;
-}
-
 .popupImg {
   width: 30px;
   height: 30px;
   padding: 10px;
 }
 
-.imgBike {
-  width: 30px;
-  height: 30px;
-}
-
-.control {
-  position: absolute;
-  top: 36;
-  left: 0;
-  padding: 0px;
-}
-
-.divSelection {
-  margin: 10px;
+.uList {
+  text-decoration: none;
+  color: black;
 }

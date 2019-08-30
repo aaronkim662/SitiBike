@@ -5,7 +5,7 @@
 
 Siti-Bike
 
-Users will be able to locate Citi bikes via a search bar. The website will display how many bikes are available as well as how many docks are present.
+Users will be able to locate Citi bikes by the api provided.The website will display how many bikes are available as well as how many docks are present.
 
 ## Wireframes
 
@@ -16,10 +16,13 @@ https://cloudinary.com/console/media_library/asset/image/upload/Images/p2wirefra
 
 ## API
 
-Provide a description and link to the API you have chosen for your project.
 http://feeds.citibikenyc.com/stations/stations.json
+This api contains an updated list of bikes, docks, and stations.
 
-Provide a small code sample of the returned data that you will use to build your app.
+https://api.geocod.io/v1.3/geocode
+This api converts street addresses and borough to latitude and longitude.
+
+Example
 
 makeApi = async() => {
     let url = 'https://cors-anywhere.herokuapp.com/http://feeds.citibikenyc.com/stations/stations.json'
@@ -30,9 +33,9 @@ makeApi = async() => {
 
 The functionality will then be divided into two separate lists: MVP and PostMVP.  Carefully decide what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
-The website will have a header, footer, home, form, about, search, and a main section. The necessary component will be the search component. Pre-MVP the user will be able to search for bikes either by zip code or address. There will be a function for the user to minimize and maximize the current map.
+The website will have an app, header, footer, home, form, search, and a main section. The necessary component will be the search component. Pre-MVP the user will be see and click on icons, which will display the available bikes and docks. There will be a function for the user to minimize and maximize the current map.
 
-Post-MVP there will be an algorithm to inform the user of the nearest and best station. There should be a highlighted radius of how far the station should be.
+Post-MVP there will be an algorithm to inform the user of the nearest station or the nearest station that contains the most bikes, based on their current location. As well as, a search option for the user to visualize stations nearby.
 
 #### MVP EXAMPLE
 - Render all bikes
@@ -40,27 +43,23 @@ Post-MVP there will be an algorithm to inform the user of the nearest and best s
 - Allow user to interact with the page
 
 #### PostMVP EXAMPLE
-
 - Geolocation/nearest best bike station
-
+- Search option
 
 ## React Component Hierarchy
 
 Define the the React components and the architectural design of your app.
 
-The parent is the App. Its children are the Main, Header, Footer, About, and Home. The child of the Main is the Form. In the PostMVP, the Main component will have another child called Nearby.
+The parent is the App. Its children are the Main, Header, Footer, Search, and Home. The child of the Main is the Form. In the PostMVP, the Main component will have another child called Nearby.
 
 ## Components
 ##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
-
-Based on the initial logic defined in the previous sections try and breakdown the logic further into stateless/stateful components.
 
 | Component | Description |
 | --- | :---: |  
 | App | This will make the initial data pull and include React Router|
 | Header | This will render the header including the nav |
 | Footer | This will render the footer which will include my name and copyright |
-| About | This will render an about section describing the website. |
 | Home | This will render the home section; to introduce the users to the website. |
 | Form | The form will render a search bar for users to input addresses and zip codes. |
 | Search | This will render an interactive map and be the main component of the entire website. |
@@ -71,35 +70,31 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Building skeleton | M | 30 Mins | 20 Mins |
-| Working with API | H | 1hr | .5hr |
-| Footer | L | .5hr | 5 mins |
-| Header | L | .5hr | 10 mins |
-| About | L | .5hr | Erased |
-| Building a map | H | 2hr | 3hrs |
-| Adding functions | H | 2hr | 1hr |
-| Displaying data | H | 1hr | 10 mins |
-| MVP Total Time | | | 4.6hr |
+| Building skeleton | M | 30 Mins | 20 Mins | 20 Mins |
+| Working with API | H | 1 Hr | 30 Mins | 30 Mins
+| Footer | L | 30 Mins | 5 Mins | 5 Mins |
+| Header | L | 30 Mins | 10 Mins | 10 Mins |
+| About | L | 30 Mins | Erased | |
+| Building a map | H | 2 hr | 3 hrs | 3 hrs |
+| Adding functions | H | 2 Hr | 1 Hr | 1 Hr |
+| Displaying data | H | 1 Hr | 10 Mins | 10 Mins |
+| MVP Total Time | | | 5 Hr 15 Mins |
 | PostMVP | | | |
-| Add zoom in and out | L | 1hr | .5hr |
-| Working with geoLocate API | H | 2hr | 1hr |
-| Search Form | H | 2hr | 1hr |
-| Enable radius markers | H | 2hr | Removed from PMVP |
-| Set up algorithm | H | 2hr | 1hr |
-| Display nearby | H | 2hr | 4hr |
+| Add zoom in and out | L | 1 Hr | 30 Mins | 30 Mins
+| Working with geoLocate API | H | 2 Hr | 4 Hr | 4 Hr
+| Search Form | H | 2hr | 1 Hr | 1 Hr |
+| Enable radius markers | H | 2 Hr | Erased | |
+| Set up algorithm | H | 2 Hr | 10 mins | 10 Mins
+| Display nearby | H | 2 Hr | 4 Hr | 4 Hr |
 
 
 ## Additional Libraries
- Use this section to list all supporting libraries and their role in the project such as Axios, ReactStrap, D3, etc.
  -axios
  -mapbox
  -react-map-gl
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  Code snippet should not be greater than 10 lines of code.
-
-```
 const handleSubmit = (val) => {
   setLocated(val)
   setViewport({
@@ -109,7 +104,7 @@ const handleSubmit = (val) => {
     height: '100vh',
     zoom: 16
   })
-```
+
 ## Description
   This code uses the users input in the search form and sets up the map so that it zooms to that location.
 
@@ -120,9 +115,7 @@ const handleSubmit = (val) => {
  -Getting the map to render : Restart Client ('-')
  -Applying geolocation into the app without complicating the structure of the current search component : Applied more react map gl effects
  (functional to class)
-
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+ -Troubleshooting the algorithm to display the correct information
 
 ## Questions needed
+Github Repo: https://github.com/aaronkim662/website_api

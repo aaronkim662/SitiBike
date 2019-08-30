@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl, FullscreenControl} from 'react-map-gl'
+import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl} from 'react-map-gl'
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import Form from './Form'
 import pyth from '../services/pyth'
@@ -59,8 +59,8 @@ function Search(props){
       latitude: val.latitude,
       longitude: val.longitude,
       width: '100vw',
-      height: '100vh',
-      zoom: 16
+      height: '75vh',
+      zoom: 15
     })
   }
 const geoLocateControl = (newViewport) => {
@@ -72,7 +72,7 @@ const geoLocateControl = (newViewport) => {
     latitude: newViewport.latitude,
     longitude: newViewport.longitude,
     width: '100vw',
-    height: '100vh',
+    height: '75vh',
     zoom: 15
   })
   if (mapData.length) {
@@ -102,13 +102,14 @@ const geoLocateControl = (newViewport) => {
 
       <Form onSubmit={handleSubmit}/>
 
-        <div className="divSelection">Do you want the greatest number of bikes or the shortest distance? (Select the geoLocater after)
-        <button onClick={(e) => {
+        <div className="divSelection">Greatest number of bikes or Shortest distance? (Click the geoLocator after)
+        <button className="btnSelection" onClick={(e) => {
             setLocationPy({
               selection: 'bike'
             })
           }}>Bikes</button>
-          <button onClick={(e) => {
+          <button className="btnSelection"
+            onClick={(e) => {
               setLocationPy({
                 selection: 'distance'
               })
@@ -172,7 +173,6 @@ const geoLocateControl = (newViewport) => {
       />
     <div className='control'>
       <NavigationControl />
-      <FullscreenControl />
     </div>
   </ReactMapGL>
 </React.Fragment>

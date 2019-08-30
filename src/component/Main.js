@@ -8,6 +8,7 @@ class Main extends React.Component {
   state = {
     list:[],
   }
+
   makeApi = async() => {
     let url = 'https://cors-anywhere.herokuapp.com/http://feeds.citibikenyc.com/stations/stations.json'
     let data = await axios(url)
@@ -15,10 +16,13 @@ class Main extends React.Component {
       list: data.data.stationBeanList
     })
   }
+
   componentDidMount() {
     this.makeApi()
   }
+
   render(){
+    
   return (
   <main>
     <Switch>

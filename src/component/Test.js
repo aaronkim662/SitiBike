@@ -1,16 +1,14 @@
+// Test component/ Saved for possible use in the future
+
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import React, { Component } from "react";
 import MapGL from "react-map-gl";
-
 import Geocoder from "react-map-gl-geocoder";
 
 //https://codesandbox.io/s/l7p179qr6m
 //open sourced code from github displaying geocode
 
-// Please be a decent human and don't abuse my Mapbox API token.
-// If you fork this sandbox, replace my API token with your own.
-// Ways to set Mapbox token: https://uber.github.io/react-map-gl/#/Documentation/getting-started/about-mapbox-tokens
 const MAPBOX_TOKEN =
 'pk.eyJ1IjoiYWs2NjIiLCJhIjoiY2p6b2luZHVuMGJtdDNnbnBldnl6a2x6NiJ9.AkXmtKaG6lb3xh19G6LzkQ';
 class Test extends Component {
@@ -29,7 +27,6 @@ class Test extends Component {
       latitude: '40.740552',
       longitude: '-73.987172'
     }
-
   };
 
   mapRef = React.createRef();
@@ -40,10 +37,8 @@ class Test extends Component {
     });
   }
 
-  // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
   handleGeocoderViewportChange = viewport => {
     const geocoderDefaultOverrides = { transitionDuration: 1000 };
-
     return this.handleViewportChange({
       ...viewport,
       ...geocoderDefaultOverrides
@@ -63,7 +58,9 @@ class Test extends Component {
         })
       });
     };
+
   render() {
+
     const { viewport, searchResultLayer } = this.state;
     console.log('props', this.props)
     console.log('lats', this.state.data.latitude)
@@ -85,11 +82,9 @@ class Test extends Component {
           mapboxApiAccessToken={MAPBOX_TOKEN}
           position="top-left"
         />
-
         </MapGL>
       </div>
     );
   }
 }
-
 export default Test
