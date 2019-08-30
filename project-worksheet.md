@@ -78,7 +78,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Building a map | H | 2 hr | 3 hrs | 3 hrs |
 | Adding functions | H | 2 Hr | 1 Hr | 1 Hr |
 | Displaying data | H | 1 Hr | 10 Mins | 10 Mins |
-| MVP Total Time | | | 5 Hr 15 Mins |
+| MVP Total Time | 8 Hr | 5 Hr 15 Mins | 5 Hr 15 Mins |
 | PostMVP | | | |
 | Add zoom in and out | L | 1 Hr | 30 Mins | 30 Mins
 | Working with geoLocate API | H | 2 Hr | 4 Hr | 4 Hr
@@ -86,6 +86,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Enable radius markers | H | 2 Hr | Erased | |
 | Set up algorithm | H | 2 Hr | 10 mins | 10 Mins
 | Display nearby | H | 2 Hr | 4 Hr | 4 Hr |
+| PostMVP | H | 11 Hr | 9 Hr 40 Mins | 9 Hr 40 Mins |
 
 
 ## Additional Libraries
