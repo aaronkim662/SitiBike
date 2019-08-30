@@ -48,12 +48,9 @@ Post-MVP there will be an algorithm to inform the user of the nearest station or
 
 ## React Component Hierarchy
 
-Define the the React components and the architectural design of your app.
-
 The parent is the App. Its children are the Main, Header, Footer, Search, and Home. The child of the Main is the Form. In the PostMVP, the Main component will have another child called Nearby.
 
 ## Components
-##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
 
 | Component | Description |
 | --- | :---: |  
@@ -66,7 +63,7 @@ The parent is the App. Its children are the Main, Header, Footer, Search, and Ho
 | Main | This will render out the route paths. |
 
 
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Also, put a gif at the top of your Readme before you pitch, and you'll get a panda prize.
+##Project Process
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
@@ -78,7 +75,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Building a map | H | 2 hr | 3 hrs | 3 hrs |
 | Adding functions | H | 2 Hr | 1 Hr | 1 Hr |
 | Displaying data | H | 1 Hr | 10 Mins | 10 Mins |
-| MVP Total Time | 8 Hr | 5 Hr 15 Mins | 5 Hr 15 Mins |
+| MVP Total Time | H | 8 Hr | 5 Hr 15 Mins |
 | PostMVP | | | |
 | Add zoom in and out | L | 1 Hr | 30 Mins | 30 Mins
 | Working with geoLocate API | H | 2 Hr | 4 Hr | 4 Hr
@@ -110,7 +107,6 @@ const handleSubmit = (val) => {
   This code uses the users input in the search form and sets up the map so that it zooms to that location.
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
 
  Major Issues:
  -Getting the map to render : Restart Client ('-')
