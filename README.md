@@ -1,68 +1,118 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Overview
 
-## Available Scripts
 
-In the project directory, you can run:
+## Project Description
 
-### `npm start`
+Siti-Bike
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Users will be able to locate Citi bikes by the api provided.The website will display how many bikes are available as well as how many docks are present.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Wireframes
 
-### `npm test`
+https://cloudinary.com/console/media_library/asset/manage/summary/image/upload/Images%2Fp2wireframe
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Revised Wireframe
+https://cloudinary.com/console/media_library/asset/image/upload/Images/p2wireframe3
 
-### `npm run build`
+## API
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+http://feeds.citibikenyc.com/stations/stations.json
+This api contains an updated list of bikes, docks, and stations.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+https://api.geocod.io/v1.3/geocode
+This api converts street addresses and borough to latitude and longitude.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Example
 
-### `npm run eject`
+makeApi = async() => {
+    let url = 'https://cors-anywhere.herokuapp.com/http://feeds.citibikenyc.com/stations/stations.json'
+    let data = await axios(url)
+    console.table(data.data.stationBeanList);
+  }
+### MVP/PostMVP - 5min
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The functionality will then be divided into two separate lists: MVP and PostMVP.  Carefully decide what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The website will have an app, header, footer, home, form, search, and a main section. The necessary component will be the search component. Pre-MVP the user will be see and click on icons, which will display the available bikes and docks. There will be a function for the user to minimize and maximize the current map.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Post-MVP there will be an algorithm to inform the user of the nearest station or the nearest station that contains the most bikes, based on their current location. As well as, a search option for the user to visualize stations nearby.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### MVP EXAMPLE
+- Render all bikes
+- Regularly updated
+- Allow user to interact with the page
 
-## Learn More
+#### PostMVP EXAMPLE
+- Geolocation/nearest best bike station
+- Search option
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## React Component Hierarchy
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The parent is the App. Its children are the Main, Header, Footer, Search, and Home. The child of the Main is the Form. In the PostMVP, the Main component will have another child called Nearby.
 
-### Code Splitting
+## Components
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+| Component | Description |
+| --- | :---: |  
+| App | This will make the initial data pull and include React Router|
+| Header | This will render the header including the nav |
+| Footer | This will render the footer which will include my name and copyright |
+| Home | This will render the home section; to introduce the users to the website. |
+| Form | The form will render a search bar for users to input addresses and zip codes. |
+| Search | This will render an interactive map and be the main component of the entire website. |
+| Main | This will render out the route paths. |
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+##Project Process
 
-### Making a Progressive Web App
+| Component | Priority | Estimated Time | Time Invested | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Building skeleton | M | 30 Mins | 20 Mins | 20 Mins |
+| Working with API | H | 1 Hr | 30 Mins | 30 Mins
+| Footer | L | 30 Mins | 5 Mins | 5 Mins |
+| Header | L | 30 Mins | 10 Mins | 10 Mins |
+| About | L | 30 Mins | Erased | |
+| Building a map | H | 2 hr | 3 hrs | 3 hrs |
+| Adding functions | H | 2 Hr | 1 Hr | 1 Hr |
+| Displaying data | H | 1 Hr | 10 Mins | 10 Mins |
+| MVP Total Time | H | 8 Hr | 5 Hr 15 Mins |
+| PostMVP | | | |
+| Add zoom in and out | L | 1 Hr | 30 Mins | 30 Mins
+| Working with geoLocate API | H | 2 Hr | 4 Hr | 4 Hr
+| Search Form | H | 2hr | 1 Hr | 1 Hr |
+| Enable radius markers | H | 2 Hr | Erased | |
+| Set up algorithm | H | 2 Hr | 10 mins | 10 Mins
+| Display nearby | H | 2 Hr | 4 Hr | 4 Hr |
+| PostMVP | H | 11 Hr | 9 Hr 40 Mins | 9 Hr 40 Mins |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+## Additional Libraries
+ -axios
+ -mapbox
+ -react-map-gl
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Code Snippet
 
-### Deployment
+const handleSubmit = (val) => {
+  setLocated(val)
+  setViewport({
+    latitude: val.latitude,
+    longitude: val.longitude,
+    width: '100vw',
+    height: '100vh',
+    zoom: 16
+  })
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Description
+  This code uses the users input in the search form and sets up the map so that it zooms to that location.
 
-### `npm run build` fails to minify
+## Issues and Resolutions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ Major Issues:
+ -Getting the map to render : Restart Client ('-')
+ -Applying geolocation into the app without complicating the structure of the current search component : Applied more react map gl effects
+ (functional to class)
+ -Troubleshooting the algorithm to display the correct information
+
+## Questions needed
+Github Repo: https://github.com/aaronkim662/website_api
