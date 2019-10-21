@@ -104,15 +104,4 @@ const handleSubmit = (val) => {
   })
 
 ## Description
-  This code uses the users input in the search form and sets up the map so that it zooms to that location.
-
-## Issues and Resolutions
-
- Major Issues:
- -Getting the map to render : Restart Client ('-')
- -Applying geolocation into the app without complicating the structure of the current search component : Applied more react map gl effects
- (functional to class)
- -Troubleshooting the algorithm to display the correct information
-
-## Questions needed
-Github Repo: https://github.com/aaronkim662/website_api
+  This code allows the users to input in the search form, which sets up the map so that it zooms to that location.
