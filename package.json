@@ -1,10 +1,9 @@
 {
   "name": "website",
-
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "deck.gl": "^7.2.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -12,7 +11,7 @@
     "react-map-gl": "^5.0.10",
     "react-map-gl-geocoder": "^2.0.9",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^4.0.3",
     "reactjs-popup": "^1.4.2"
   },
   "scripts": {
@@ -20,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy" : "npm run build&&gh-pages -d build"
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
