@@ -25,8 +25,7 @@ handleSubmit = (e) => {
   location = async () =>{
     let formValue = this.state.value.split(' ').join('+');
     let base1 = '&city=NewYorkCity&state=NY&api_key=';
-    let key = '258c6fc642ec22506d0d263e55ef02566d55f88';
-    let final = `https://api.geocod.io/v1.3/geocode?street=${formValue + base1 + key}`;
+    let final = `https://api.geocod.io/v1.3/geocode?street=${formValue + base1 + process.env.REACT_APP_GEOCODE_TOKEN}`;
     let coords = await axios(final);
     this.setState({
       location: coords,
